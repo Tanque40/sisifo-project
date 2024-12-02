@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 interface SecurityCheckComponentProps {
   key: number;
   breakNumberId: number;
+  selfChange: boolean;
+  scheduleChange: boolean;
 }
 
 export default function SecurityCheckComponent(props: SecurityCheckComponentProps) {
@@ -116,9 +118,35 @@ export default function SecurityCheckComponent(props: SecurityCheckComponentProp
     }
   }
 
+  const handleOnClickAcceptAllValues = () => {
+    const generalStatusIsOk: boolean = (gasSensorValue == 0) && (fluidSensorValue == idealFluidValue) && (temperatureValue <= 140) && (microFluidSensorValue == 0)
+
+
+    console.log(`${generalStatusIsOk}, ${props.selfChange}, ${props.scheduleChange}`);
+
+    if (!generalStatusIsOk) {
+      Swal.fire({
+        title: '¡Revision URGENTE!',
+        html: 'No puedes hacer el cambio',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      })
+    }
+
+    if (generalStatusIsOk) {
+      Swal.fire({
+        title: '¡Éxito!',
+        html: 'Se puede encender/apagar el equipo',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      })
+    }
+
+  }
+
   return (
     <div className="mb-4">
-      <span className="text-xl font-bold">Revisón de seguridad del break {props.breakNumberId}</span>
+      <span className="text-xl font-bold">Revisón de seguridad del equipo {props.breakNumberId}</span>
       <br />
       <span className=" mt-2 text-md font-light">Se analizará si no se ha activado algún sensor</span>
       <br />
@@ -239,6 +267,15 @@ export default function SecurityCheckComponent(props: SecurityCheckComponentProp
             value="Aceptar"
             className="rounded-full bg-green-600 w-1/5 ml-2 text-white font-bold"
             onClick={() => handleOnClickAcceptTemperatureSensor()}
+          />
+        </div>
+        <div className="flex flex-col h-16">
+          <input
+            type="button"
+            id="acceptAllValuesSensor"
+            value={`Aceptar valores equipo ${props.breakNumberId}`}
+            className="rounded-full bg-green-600 w-2/5 h-16 mx-auto my-4 text-white font-bold"
+            onClick={() => handleOnClickAcceptAllValues()}
           />
         </div>
       </div>

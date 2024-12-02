@@ -7,14 +7,16 @@ export default function Home() {
   const [scheduleChangeBreak, setScheduleChangeBreak] = useState(false)
   const [breaksNumber, setBreaksNumber] = useState(1)
   // eslint-disable-next-line prefer-const
-  const [securityCheckComponents, setSecurityCheckComponents] = useState([<SecurityCheckComponent key={0} breakNumberId={(0 + 1)} />])
+  const [securityCheckComponents, setSecurityCheckComponents] = useState([<SecurityCheckComponent key={0} breakNumberId={(0 + 1)} selfChange={selfChangeBreak} scheduleChange={scheduleChangeBreak} />])
 
   const handleSelfChangeBreak = () => {
     setSelfChangeBreak(!selfChangeBreak)
+    udpateSecurityComponents()
   }
 
   const handleScheduleChangeBreak = () => {
     setScheduleChangeBreak(!scheduleChangeBreak)
+    udpateSecurityComponents()
   }
 
   const handleBreaksNumberChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,12 +27,14 @@ export default function Home() {
   const udpateSecurityComponents = () => {
     const temp = []
     for (let i = 0; i < breaksNumber; i++) {
-      temp.push(<SecurityCheckComponent key={i} breakNumberId={(i + 1)} />)
+      temp.push(<SecurityCheckComponent key={i} breakNumberId={(i + 1)} selfChange={selfChangeBreak} scheduleChange={scheduleChangeBreak} />)
     }
     setSecurityCheckComponents(temp)
   }
 
   useEffect(() => {
+    /*
+     ? Comment for changes in the way of handle operation
     const optionsElement: HTMLElement | null = document.getElementById('options')
     if (scheduleChangeBreak || selfChangeBreak) {
       if (optionsElement)
@@ -39,6 +43,7 @@ export default function Home() {
       if (optionsElement)
         optionsElement.classList.add('hidden')
     }
+    */
   })
 
   return (
@@ -68,7 +73,7 @@ export default function Home() {
                 <label htmlFor="scheduleChangeBreak" className="ml-1">Encendido/Apagado programado</label>
               </div>
               <div className="">
-                <label htmlFor="breaksNumber" className="mr-2">Cantidad de breaks:</label>
+                <label htmlFor="breaksNumber" className="mr-2">Cantidad de equipos a encender/apagar:</label>
                 <div className="border rounded-md w-3/4">
                   <input
                     type="number"
@@ -89,8 +94,8 @@ export default function Home() {
                 onClick={() => udpateSecurityComponents()}
               />
             </div>
-            <div id="options" className="hidden w-5/6 my-6">
-              <div className="flex flex-col border-2 h-full rounded-xl border-gray-500 shadow-lg p-6 overflow-y-auto">
+            <div id="options" className="w-5/6 my-6">
+              <div className="flex flex-col border-2 rounded-xl border-gray-500 shadow-lg p-6 overflow-y-auto">
                 {securityCheckComponents}
               </div>
             </div>
