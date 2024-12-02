@@ -89,7 +89,7 @@ export default function Home() {
                 onClick={() => udpateSecurityComponents()}
               />
             </div>
-            <div id="options" className="hidden h-5/6 w-5/6 mt-6">
+            <div id="options" className="hidden w-5/6 my-6">
               <div className="flex flex-col border-2 h-full rounded-xl border-gray-500 shadow-lg p-6 overflow-y-auto">
                 {securityCheckComponents}
               </div>
