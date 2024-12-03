@@ -7,7 +7,7 @@ export default function Navbar() {
   const menuOptions: NavElementOptions[] = [
     { name: 'Encender/Apagar equipos', link: '/' },
     { name: 'Revisión de seguridad', link: '/security-check' },
-    { name: 'Revisión de contenedores', link: '/container-check' }
+    { name: 'Revisión de tanques', link: '/container-check' }
   ]
 
   return (
