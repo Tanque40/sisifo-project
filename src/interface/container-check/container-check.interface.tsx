@@ -1,7 +1,7 @@
 export interface ContainerFormInterface {
   name: string;
   form: ContainerForm;
-  radio?: number;
+  radius?: number;
   height?: number;
   base?: number;
   deep?: number;

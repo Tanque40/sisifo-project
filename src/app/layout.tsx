@@ -26,6 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        {/* Import Google Icon Font */}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

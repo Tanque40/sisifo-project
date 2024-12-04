@@ -8,12 +8,13 @@ export default function LateralNav(props: LateralNavProps) {
   return (
     <div className="flex flex-col border-2 border-l-black h-screen justify-center">
       {props.figures.map((figure: ContainerFormInterface, index) => (
-        <input
+        <a
           key={index}
           type="button"
-          className="border-2 border-t-black border-b-black w-full h-6 pb-10 pt-5 mb-2"
-          value={`${figure.name}`}
-        />
+          className="border-2 border-t-black border-b-black w-full h-6 pb-10 pt-5 mb-2 text-center overflow-hidden"
+        >
+          {`Tanque: ${figure.name}, volumen: ${figure.volume}`}
+        </a>
       ))}
     </div>
   )
