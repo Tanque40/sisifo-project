@@ -5,7 +5,7 @@ interface NavElementOptions {
 
 export default function Navbar() {
   const menuOptions: NavElementOptions[] = [
-    { name: 'Encender/Apagar equipos', link: '/' },
+    { name: 'Encender/Apagar equipos', link: '/sisifo-project/' },
     { name: 'Revisión de seguridad', link: '/sisifo-project/security-check' },
     { name: 'Revisión de tanques', link: '/sisifo-project/container-check' }
   ]
