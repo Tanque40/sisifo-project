@@ -1,5 +1,5 @@
 "use client"
-import { MutableRefObject, useEffect, useRef, useState, ChangeEvent } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 
 import ContainerData from "@/components/container-check/container-data/container-data.component";
 import FigureForm from "@/components/container-check/figure-form/figure-form.component";
