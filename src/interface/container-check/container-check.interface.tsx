@@ -1,14 +1,18 @@
 export interface ContainerFormInterface {
   name: string;
-  volume?: number;
   form: ContainerForm;
+  radio?: number;
+  height?: number;
+  base?: number;
+  deep?: number;
+  volume?: number;
   diferencial?: number;
   selected: boolean;
 }
 
 export enum ContainerForm {
-  CYLINDER = 'cilindrico',
-  CIRCULAR = 'circular',
-  SQUARE = 'cuadrado',
-  RECTANGULAR = 'rectangular'
+  CYLINDER = 'Cilíndrica',
+  CIRCULAR = 'Esférica',
+  SQUARE = 'Cuadrada',
+  RECTANGULAR = 'Rectangular'
 }
