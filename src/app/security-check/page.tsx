@@ -2,7 +2,7 @@
 import { ChangeEvent, useState } from "react";
 import Swal from "sweetalert2";
 
-interface SecurityCheckComponentProps {
+export interface SecurityCheckComponentProps {
   key: number;
   breakNumberId: number;
   selfChange: boolean;
