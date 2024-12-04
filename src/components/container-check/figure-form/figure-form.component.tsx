@@ -60,7 +60,7 @@ export default function FigureForm(
     })
   }
 
-  const handleOnClickAddContainer = (event: MouseEvent) => {
+  const handleOnClickAddContainer = (event) => {
     event.preventDefault()
     props.addFigure()
     props.setFigure({
@@ -233,7 +233,7 @@ export default function FigureForm(
             <a
               href="#"
               className="rounded-full w-full bg-green-600 h-10 text-white font-bold flex justify-center pt-2"
-              onClick={(event: any) => handleOnClickAddContainer(event)}
+              onClick={(event) => handleOnClickAddContainer(event)}
             >
               <i className="small material-icons" aria-hidden="true">add</i>
               Añadir tanque
