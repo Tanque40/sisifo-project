@@ -37,7 +37,8 @@ export default function ContainerCheck() {
         newFigure.volume = (newFigure.base ? newFigure.base : 1) * (newFigure.deep ? newFigure.deep : 1) * (newFigure.height ? newFigure.height : 1)
         break;
     }
-    newFigure.volume = Math.round(newFigure.volume * 100) / 100
+    if (newFigure.volume)
+      newFigure.volume = Math.round(newFigure.volume * 100) / 100
     figures.current.push(newFigure)
   }
 

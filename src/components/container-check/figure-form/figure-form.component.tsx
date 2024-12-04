@@ -1,5 +1,5 @@
 "use client"
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react"
+import { ChangeEvent, Dispatch, MouseEvent, SetStateAction, useState } from "react"
 
 import { ContainerForm, ContainerFormInterface } from "@/interface/container-check/container-check.interface"
 
@@ -60,7 +60,7 @@ export default function FigureForm(
     })
   }
 
-  const handleOnClickAddContainer = (event) => {
+  const handleOnClickAddContainer = (event: React.MouseEvent) => {
     event.preventDefault()
     props.addFigure()
     props.setFigure({
@@ -233,7 +233,7 @@ export default function FigureForm(
             <a
               href="#"
               className="rounded-full w-full bg-green-600 h-10 text-white font-bold flex justify-center pt-2"
-              onClick={(event) => handleOnClickAddContainer(event)}
+              onClick={(event: React.MouseEvent) => handleOnClickAddContainer(event)}
             >
               <i className="small material-icons" aria-hidden="true">add</i>
               Añadir tanque
