@@ -2,14 +2,7 @@
 import { ChangeEvent, useState } from "react";
 import Swal from "sweetalert2";
 
-export interface SecurityCheckComponentProps {
-  key: number;
-  breakNumberId: number;
-  selfChange: boolean;
-  scheduleChange: boolean;
-}
-
-export default function SecurityCheckComponent(props: SecurityCheckComponentProps) {
+export default function SecurityCheckComponent() {
   const [selectedSensor, setSelectedSensor] = useState<string | null>(null);
   const [gasSensorValue, setGasSensorValue] = useState<number | null>(null);
   const [microFluidSensorValue, setMicroFluidSensorValue] = useState<number | null>(null);
@@ -50,7 +43,7 @@ export default function SecurityCheckComponent(props: SecurityCheckComponentProp
     if (microFluidSensorValue && microFluidSensorValue > 0) {
       Swal.fire({
         title: "¡Emergencia!",
-        html: `Microfuga detectada en la tubería asociada al equipo ${props.breakNumberId}. Se requiere reparación inmediata.`,
+        html: `Microfuga detectada en la tubería asociada al equipo. Se requiere reparación inmediata.`,
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -86,7 +79,7 @@ export default function SecurityCheckComponent(props: SecurityCheckComponentProp
     if (temperatureValue && temperatureValue >= 140) {
       Swal.fire({
         title: "¡Emergencia!",
-        html: `La bomba ${props.breakNumberId} está a punto de incendiarse. <br /> ¡Paro de emergencia! <br /> Notificar al personal calificado.`,
+        html: `La bomba está a punto de incendiarse. <br /> ¡Paro de emergencia! <br /> Notificar al personal calificado.`,
         icon: "error",
         confirmButtonText: "Aceptar",
       });
@@ -106,7 +99,7 @@ export default function SecurityCheckComponent(props: SecurityCheckComponentProp
 
 
         <div className="mb-4">
-          <h2 className="text-lg font-bold">Revisión de Seguridad - Equipo {props.breakNumberId}</h2>
+          <h2 className="text-lg font-bold">Revisión de Seguridad</h2>
           <div className="mt-4">
             <label htmlFor="sensorType" className="block text-sm font-medium">
               Selecciona el tipo de sensor:
