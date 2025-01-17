@@ -34,10 +34,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="grid grid-cols-12">
-          <div className="col-span-3">
+          <div className="col-span-2">
             <Navbar />
           </div>
-          <div className="col-span-9">
+          <div className="col-span-10">
             {children}
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function Navbar() {
             <a
               href={option.link}
               key={option.name}
-              className="h-auto border-2 border-gray-500 py-2 px-4 rounded-md text-center"
+              className="h-auto border-2 border-gray-500 py-2 px-4 rounded-md text-center mb-2"
             >
               <div className="mt-1.5">
                 {option.name}

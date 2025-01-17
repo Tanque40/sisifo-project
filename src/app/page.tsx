@@ -6,7 +6,6 @@ export default function Home() {
   const [selfChangeBreak, setSelfChangeBreak] = useState(false)
   const [scheduleChangeBreak, setScheduleChangeBreak] = useState(false)
   const [breaksNumber, setBreaksNumber] = useState(1)
-  // eslint-disable-next-line prefer-const
   const [securityCheckComponents, setSecurityCheckComponents] = useState([<SecurityCheckComponent key={0} breakNumberId={(0 + 1)} selfChange={selfChangeBreak} scheduleChange={scheduleChangeBreak} />])
 
   const handleSelfChangeBreak = () => {

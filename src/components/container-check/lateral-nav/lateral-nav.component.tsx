@@ -11,9 +11,13 @@ export default function LateralNav(props: LateralNavProps) {
         <a
           key={index}
           type="button"
-          className="border-2 border-t-black border-b-black w-full h-6 pb-10 pt-5 mb-2 text-center overflow-hidden"
+          className="border-2 border-t-black border-b-black w-full  pb-6 pt-5 mb-2 text-center overflow-hidden"
         >
-          {`Tanque: ${figure.name}, volumen: ${figure.volume}`}
+          <span className="font-semibold">
+            {figure.name}
+          </span>
+          <br />
+          {`volumen: ${figure.volume}`}
         </a>
       ))}
     </div>

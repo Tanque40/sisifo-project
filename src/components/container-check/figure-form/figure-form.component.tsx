@@ -7,7 +7,7 @@ export default function FigureForm(
   props: {
     figure: ContainerFormInterface,
     setFigure: Dispatch<SetStateAction<ContainerFormInterface>>,
-    addFigure: () => void
+    addFigure: (figure: ContainerFormInterface) => void
   }
 ) {
   const possibleForms = Object.values(ContainerForm)
@@ -58,11 +58,14 @@ export default function FigureForm(
       ...props.figure,
       form: figureType
     })
+    console.log(figureType);
+    console.log(props.figure);
+
   }
 
   const handleOnClickAddContainer = (event: React.MouseEvent) => {
     event.preventDefault()
-    props.addFigure()
+    props.addFigure(props.figure)
     props.setFigure({
       name: '',
       form: ContainerForm.CIRCULAR,

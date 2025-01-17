@@ -14,37 +14,49 @@ export default function ContainerCheck() {
     height: Number.NaN,
     base: Number.NaN,
     deep: Number.NaN,
+    volume: Number.NaN,
     selected: false
   })
   const figures: MutableRefObject<ContainerFormInterface[]> = useRef<ContainerFormInterface[]>(new Array<ContainerFormInterface>())
 
-  const addNewFigure = () => {
-    console.log(newFigure);
+  const addNewFigure = (figure: ContainerFormInterface) => {
+    console.log(figure);
 
-    switch (newFigure.form) {
+    let volume = -1;
+    switch (figure.form) {
       case ContainerForm.CYLINDER:
-        newFigure.volume = Math.PI * (newFigure.radius ? newFigure.radius : 1) * (newFigure.height ? newFigure.height : 1)
+        volume = Math.PI * (figure.radius ? figure.radius : 1) * (figure.height ? figure.height : 1)
         break;
       case ContainerForm.CIRCULAR:
-        newFigure.volume = (4 / 3) * Math.PI * Math.pow((newFigure.radius ? newFigure.radius : 1), 3)
+        volume = (4 / 3) * Math.PI * Math.pow((figure.radius ? figure.radius : 1), 3)
         break;
       case ContainerForm.SQUARE:
-        newFigure.volume = Math.pow((newFigure.height ? newFigure.height : 1), 3)
-        console.log(newFigure.volume);
+        volume = Math.pow((figure.height ? figure.height : 1), 3)
+        console.log(figure.volume);
 
         break;
       case ContainerForm.RECTANGULAR:
-        newFigure.volume = (newFigure.base ? newFigure.base : 1) * (newFigure.deep ? newFigure.deep : 1) * (newFigure.height ? newFigure.height : 1)
+        volume = (figure.base ? figure.base : 1) * (figure.deep ? figure.deep : 1) * (figure.height ? figure.height : 1)
         break;
     }
-    if (newFigure.volume)
-      newFigure.volume = Math.round(newFigure.volume * 100) / 100
-    figures.current.push(newFigure)
+
+    if (volume)
+      volume = Math.round(volume * 100) / 100
+
+    setNewFigure({
+      ...figure,
+      volume
+    })
+
+    console.log(volume);
+
+    figures.current.push(figure)
+    console.log(figure);
   }
 
   return (
-    <main className="grid grid-cols-6">
-      <div className="col-span-5">
+    <main className="grid grid-cols-12">
+      <div className="col-span-9">
         <div className="h-full container mx-auto p-10">
           <div className="border-2 h-full rounded-xl border-gray-500 shadow-lg p-8">
             <h1 className="text-xl font-semibold">
@@ -75,7 +87,7 @@ export default function ContainerCheck() {
           </div>
         </div>
       </div>
-      <div className="col-span-1">
+      <div className="col-span-3">
         <LateralNav figures={figures.current} />
       </div>
     </main>
